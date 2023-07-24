@@ -1,0 +1,14 @@
+:root {
+	--container-width: 1230px;
+	--container-padding: 15px;
+	--container: calc(var(--container-width) + var(--container-padding) * 2);
+
+	--font-family: arial;
+	--font-size: 16px;
+	--font-weight: 400;
+	--background-color: #fff;
+	--color: #000;
+
+	--transition-duration: 0.4s;
+	--animation-duration: 1.4s;
+}

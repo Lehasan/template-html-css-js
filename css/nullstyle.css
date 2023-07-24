@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: 1;
+	color: inherit;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+input {
+	outline: none;
+}
+
+cite {
+	display: block;
+	font-style: normal;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+button {
+	cursor: pointer;
+}

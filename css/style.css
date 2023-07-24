@@ -1,0 +1,53 @@
+@import "variables.css";
+@import "nullstyle.css";
+@import "common.css";
+@import "buttons.css";
+@import "inputs.css";
+
+@import "header.css";
+@import "footer.css";
+
+@import "adaptive.css";
+
+body {
+	font-family: var(--font-family);
+	font-size: var(--font-size);
+	font-weight: var(--font-weight);
+	background-color: var(--background-color);
+	color: var(--color);
+}
+
+.lock {
+	overflow: hidden;
+}
+
+.wrapper {
+	position: relative;
+	overflow: hidden;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.main {
+	flex: 1 1 auto;
+}
+
+[class*="__container"] {
+	max-width: var(--container);
+	margin: 0 auto;
+	padding: 0 var(--container-padding);
+}
+
+[class*="_ibg"] {
+	position: relative;
+}
+
+[class*="_ibg"] img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
