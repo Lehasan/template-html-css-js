@@ -52,6 +52,7 @@ const slider = new Swiper('.slider', {
 		onlyInViewport: true,
 	},
 
+	// mobile first
 	breakpoints: {
 		479.89: {},
 		767.98: {},
