@@ -12,96 +12,98 @@
 </div>
 */
 
-const slider = new Swiper('.slider', {
-	wrapperClass: 'slider__wrapper',
-	slideClass: 'slider__slide',
+if (document.querySelector('.slider')) {
+	const slider = new Swiper('.slider', {
+		wrapperClass: 'slider__wrapper',
+		slideClass: 'slider__slide',
 
-	navigation: {
-		nextEl: '.slider__button_next',
-		prevEl: '.slider__button_prev',
+		navigation: {
+			nextEl: '.slider__button_next',
+			prevEl: '.slider__button_prev',
 
-		disabledClass: "slider__button_disabled",
-	},
-
-	pagination: {
-		el: '.slider__pagination',
-		bulletClass: "slider__bullet",
-		bulletActiveClass: "slider__bullet_active",
-
-		clickable: true,
-	},
-
-	direction: 'vertical',
-	slidesPerView: 'auto',
-	autoHeight: true,
-	spaceBetween: 30,
-	loop: true,
-	speed: 800,
-	grabCursor: true,
-	simulateTouch: false,
-	initialSlide: 1,
-	mousewheel: true,
-
-	autoplay: {
-		delay: 3500,
-		disableOnInteraction: true,
-	},
-
-	keyboard: {
-		enabled: true,
-		onlyInViewport: true,
-	},
-
-	// mobile first
-	breakpoints: {
-		479.89: {},
-		767.98: {},
-		991.98: {},
-	},
-
-	on: {
-		// event init slider
-		init: function () {
-			bullets()
+			disabledClass: "slider__button_disabled",
 		},
 
-		// event switch slide
-		slideChange: function () {
-			bullets()
+		pagination: {
+			el: '.slider__pagination',
+			bulletClass: "slider__bullet",
+			bulletActiveClass: "slider__bullet_active",
+
+			clickable: true,
 		},
 
-		// event resize
-		resize: function () { },
-	},
+		direction: 'vertical',
+		slidesPerView: 'auto',
+		autoHeight: true,
+		spaceBetween: 30,
+		loop: true,
+		speed: 800,
+		grabCursor: true,
+		simulateTouch: false,
+		initialSlide: 1,
+		mousewheel: true,
 
-	observer: true,
-	observeParents: true,
-	observeSlideChildren: true,
+		autoplay: {
+			delay: 3500,
+			disableOnInteraction: true,
+		},
 
-	init: false,
-})
+		keyboard: {
+			enabled: true,
+			onlyInViewport: true,
+		},
 
+		// mobile first
+		breakpoints: {
+			479.89: {},
+			767.98: {},
+			991.98: {},
+		},
 
+		on: {
+			// event init slider
+			init: function () {
+				bullets()
+			},
 
-// custom bullets
-function bullets() {
-	const bulletItems = document.querySelectorAll('[data-bullet]')
+			// event switch slide
+			slideChange: function () {
+				bullets()
+			},
 
-	if (!bulletItems?.length) return
+			// event resize
+			resize: function () { },
+		},
 
-	bulletItems.forEach((blt, bltIndex) => {
-		if (bltIndex === slider.activeIndex) {
-			const bltActive = document.querySelector('[data-bullet]._active')
-			if (bltActive) bltActive.classList.remove('_active')
+		observer: true,
+		observeParents: true,
+		observeSlideChildren: true,
 
-			blt.classList.add('_active')
-		}
-
-		blt.addEventListener('click', () => slider.slideTo(bltIndex))
+		init: false,
 	})
+
+
+
+	// custom bullets
+	const bullets = () => {
+		const bulletItems = document.querySelectorAll('[data-bullet]')
+
+		if (!bulletItems?.length) return
+
+		bulletItems.forEach((blt, bltIndex) => {
+			if (bltIndex === slider.activeIndex) {
+				const bltActive = document.querySelector('[data-bullet]._active')
+				if (bltActive) bltActive.classList.remove('_active')
+
+				blt.classList.add('_active')
+			}
+
+			blt.addEventListener('click', () => slider.slideTo(bltIndex))
+		})
+	}
+
+
+
+	// init slider
+	slider.init()
 }
-
-
-
-// init slider
-slider.init()
