@@ -17,14 +17,16 @@ body {
 	color: var(--color);
 }
 
-.lock {
+._lock {
 	overflow: hidden;
+	touch-action: none;
+	overscroll-behavior: none;
 }
 
 .wrapper {
 	position: relative;
-	overflow: hidden;
-	min-height: 100vh;
+	overflow: clip;
+	min-height: 100%;
 	display: flex;
 	flex-direction: column;
 }
@@ -35,15 +37,15 @@ body {
 
 [class*="__container"] {
 	max-width: var(--container);
-	margin: 0 auto;
 	padding: 0 var(--container-padding);
+	margin: 0 auto;
 }
 
-[class*="_ibg"] {
+[class*="__ibg"] {
 	position: relative;
 }
 
-[class*="_ibg"] img {
+[class*="__ibg"] img {
 	position: absolute;
 	top: 0;
 	left: 0;

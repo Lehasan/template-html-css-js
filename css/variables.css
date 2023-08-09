@@ -11,4 +11,15 @@
 
 	--transition-duration: 0.4s;
 	--animation-duration: 1.4s;
+
+	/* icon-menu */
+	--icon-menu-height: 20px;
+	--icon-menu-width: 30px;
+	--icon-menu-line: 2px;
+	--icon-menu-line-color: #000;
+	--icon-menu-line-radius: 0px;
+	--icon-menu-line-width: 100%;
+	--icon-menu-line-width-one: var(--icon-menu-line-width);
+	--icon-menu-line-width-two: var(--icon-menu-line-width);
+	--icon-menu-line-width-three: var(--icon-menu-line-width);
 }

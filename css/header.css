@@ -1,0 +1,64 @@
+/* burger */
+
+/* <button type="button" aria-label="Menu" class="icon-menu">
+	<span class="icon-menu__line"></span>
+</button> */
+
+.icon-menu {
+	position: relative;
+	width: var(--icon-menu-width);
+	height: var(--icon-menu-height);
+	background-color: transparent;
+}
+
+.icon-menu::before,
+.icon-menu::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	height: var(--icon-menu-line);
+	background-color: var(--icon-menu-line-color);
+}
+
+.icon-menu::before {
+	top: 0;
+	width: var(--icon-menu-line-width-one);
+}
+
+.icon-menu::after {
+	bottom: 0;
+	width: var(--icon-menu-line-width-three);
+}
+
+.icon-menu__line {
+	display: block;
+	width: var(--icon-menu-line-width-two);
+	height: var(--icon-menu-line);
+	background-color: var(--icon-menu-line-color);
+}
+
+.icon-menu::before,
+.icon-menu::after,
+.icon-menu__line {
+	border-radius: var(--icon-menu-line-radius);
+	transition: all var(--transition-duration);
+}
+
+.icon-menu._active::before,
+.icon-menu._active::after {
+	width: 100%;
+}
+
+.icon-menu._active::before {
+	top: 50%;
+	transform: translateY(-50%) rotate(45deg);
+}
+
+.icon-menu._active::after {
+	bottom: 50%;
+	transform: translateY(50%) rotate(-45deg);
+}
+
+.icon-menu._active span {
+	transform: scale(0);
+}
