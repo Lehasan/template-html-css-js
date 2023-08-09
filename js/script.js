@@ -21,5 +21,5 @@ import { toggleClass } from "./functions.js"
 window.addEventListener('load', () => {
 	setTimeout(() => {
 		toggleClass('body', '_lock', '_loaded')
-	}, 500)
+	}, 300)
 })
