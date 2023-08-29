@@ -1,21 +1,29 @@
 'use strict'
 
-import { toggleClass } from "./functions.js"
+import { toggleClass, findElement } from "./functions.js"
 
 // import { progressLoader } from "./progress-loader.js"
-// progressLoader('.SELECTOR', duration)
+// progressLoader('.SELECTOR', duration) // default duration: 0.5s
 
 // import { burgerMenu } from "./burger-menu.js"
-// burgerMenu('.icon-menu', '.burger-menu-list')
+// burgerMenu('.icon-menu', '.burger-menu-list') // class: _active
 
 // import { headerFixed } from "./fixed.js"
-// headerFixed(width) // default width: 767.98
+// headerFixed(findElement('.selector').offsetHeight) // default: 0, class: header_fixed
 
-// import { animOnScroll } from "./animation-scroll.js"
-// animOnScroll() // data-anim="TYPE, VALUE, duration"
+// import { animationOnScroll } from "./animationOnScroll.js"
+// animationOnScroll(isRepeat = false, resetDelayValue = 0, globalDuration = 1.4, viewBox = 0.5) 
+// data-animation-scroll="VALUE, delay, duration" default duration: 1.4s
 
-// import { parallaxMousemove } from "./parallax.js"
-// parallaxMousemove() // data-parallax-mouse="50" (minmax 10-100)
+// import { parallaxOnScroll } from "./parallax.js"
+// parallaxOnScroll()
+/*
+data-parallax-scroll="TYPE, speed" default speed: 2
+data-parallax-scroll-opacity="fade/show"
+*/
+
+// import { parallaxOnMousemove } from "./parallax.js"
+// parallaxOnMousemove() // data-parallax-mouse (minmax 10-100) default: 50
 
 // load page
 window.addEventListener('load', () => {

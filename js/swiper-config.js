@@ -12,7 +12,13 @@
 </div>
 */
 
-if (document.querySelector('.slider')) {
+import { toggleClass } from "./functions.js"
+
+const sliderElement = document.querySelector('.slider')
+
+if (sliderElement) {
+	sliderElement.style.minWidth = 0
+	
 	const slider = new Swiper('.slider', {
 		wrapperClass: 'slider__wrapper',
 		slideClass: 'slider__slide',
@@ -92,9 +98,7 @@ if (document.querySelector('.slider')) {
 
 		bulletItems.forEach((blt, bltIndex) => {
 			if (bltIndex === slider.activeIndex) {
-				const bltActive = document.querySelector('[data-bullet]._active')
-				if (bltActive) bltActive.classList.remove('_active')
-
+				toggleClass('[data-bullet]._active', '_active')
 				blt.classList.add('_active')
 			}
 

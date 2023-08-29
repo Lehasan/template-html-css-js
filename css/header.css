@@ -9,6 +9,7 @@
 	width: var(--icon-menu-width);
 	height: var(--icon-menu-height);
 	background-color: transparent;
+	z-index: 1;
 }
 
 .icon-menu::before,

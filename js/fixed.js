@@ -1,10 +1,10 @@
-export const headerFixed = (maxWidth = 767.98) => {
+export const headerFixed = (selector = 0) => {
 	const header = document.querySelector('header')
 
-	if (!header || document.body.offsetWidth <= maxWidth) return
+	if (!header) return
 
 	window.addEventListener('scroll', () => {
-		if (window.scrollY > 1) {
+		if (window.scrollY > selector) {
 			header.classList.add('header_fixed')
 			return
 		}

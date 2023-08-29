@@ -1,5 +1,5 @@
 @import "variables.css";
-@import "nullstyle.css";
+@import "reset.css";
 @import "common.css";
 @import "buttons.css";
 @import "inputs.css";
@@ -8,6 +8,12 @@
 @import "footer.css";
 
 @import "adaptive.css";
+
+body::-webkit-scrollbar {
+}
+
+body::-webkit-scrollbar-thumb {
+}
 
 body {
 	font-family: var(--font-family);
@@ -37,7 +43,8 @@ body {
 
 [class*="__container"] {
 	max-width: var(--container);
-	padding: 0 var(--container-padding);
+	padding-left: var(--container-padding);
+	padding-right: var(--container-padding);
 	margin: 0 auto;
 }
 

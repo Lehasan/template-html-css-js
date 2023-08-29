@@ -1,16 +1,16 @@
-import { toggleClass, handleClick } from "./functions.js"
+import { toggleClass } from "./functions.js"
 
 export const burgerMenu = (buttonSelector, menuSelector) => {
 	const burgerMenuButton = document.querySelector(buttonSelector)
 
 	if (!burgerMenuButton) {
-		console.error(`Element ${buttonSelector} not found`)
+		console.error(`Element '${buttonSelector}' not found`)
 		return
 	}
 
-	burgerMenuButton.addEventListener('click', e => {
+	burgerMenuButton.addEventListener('click', event => {
 		document.body.classList.toggle('_lock')
-		handleClick(e, '_active')
+		event.currentTarget.classList.toggle('_active')
 		toggleClass(menuSelector, '_active')
 	})
 }
