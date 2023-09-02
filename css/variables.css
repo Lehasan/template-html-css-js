@@ -22,4 +22,15 @@
 	--icon-menu-line-width-one: var(--icon-menu-line-width);
 	--icon-menu-line-width-two: var(--icon-menu-line-width);
 	--icon-menu-line-width-three: var(--icon-menu-line-width);
+
+	/* popup */
+	--popup-overlay-color: rgba(0, 0, 0, 0.8);
+	--popup-width: 500px;
+	--popup-padding: 20px;
+	--popup-radius: 10px;
+	--popup-color: #fff;
+	--popup-close-size: 20px;
+	--popup-close-line: 2px;
+	--popup-close-line-radius: 10px;
+	--popup-close-line-color: #000;
 }

@@ -1,0 +1,65 @@
+.popup {
+	overflow-y: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: grid;
+	place-items: center;
+	padding: var(--container-padding);
+	background-color: var(--popup-overlay-color);
+	opacity: 0;
+	visibility: hidden;
+	transition: all var(--transition-duration);
+}
+
+.popup_open {
+	opacity: 1;
+	visibility: visible;
+}
+
+.popup__box {
+	position: relative;
+	max-width: var(--popup-width);
+	padding: var(--popup-padding);
+	border-radius: var(--popup-radius);
+	background-color: var(--popup-color);
+}
+
+.popup__close {
+	position: absolute;
+	top: var(--popup-padding);
+	right: var(--popup-padding);
+	width: var(--popup-close-size);
+	height: var(--popup-close-size);
+}
+
+.popup__close::before,
+.popup__close::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	height: var(--popup-close-line);
+	border-radius: var(--popup-close-line-radius);
+	background-color: var(--popup-close-line-color);
+}
+
+.popup__close::before {
+	transform: rotate(45deg);
+}
+
+.popup__close::after {
+	transform: rotate(-45deg);
+}
+
+/* ======================================================== */
+
+/* <div id="popup" class="popup">
+	<div class="popup__box">
+		<button class="popup__close" type="button"></button>
+		<div class="popup__content"></div>
+	</div>
+</div> */

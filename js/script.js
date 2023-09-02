@@ -25,6 +25,9 @@ data-parallax-scroll-opacity="fade/show"
 // import { parallaxOnMousemove } from "./parallax.js"
 // parallaxOnMousemove() // data-parallax-mouse (minmax 10-100) default: 50
 
+// import { popup } from "./popup.js"
+// popup(...selectors) // data-popup="popup id"
+
 // load page
 window.addEventListener('load', () => {
 	setTimeout(() => {
