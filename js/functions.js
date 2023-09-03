@@ -31,3 +31,20 @@ export const findElements = elements => {
 		console.error(`Elements '${elements}' not found`)
 	}
 }
+
+// ===============================================================================
+
+export const watcher = (selector, condition, viewBox) => {
+	const watcherElements = document.querySelectorAll(selector)
+
+	if (!watcherElements?.length) {
+		console.error(`Elements '${selector}' not found`)
+		return
+	}
+
+	const watcherItem = entries => entries.forEach(entry => condition(entry))
+
+	const watcherObserver = new IntersectionObserver(watcherItem, { threshold: [viewBox] })
+
+	watcherElements.forEach(watcherElement => watcherObserver.observe(watcherElement))
+}
