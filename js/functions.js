@@ -42,9 +42,8 @@ export const watcher = (selector, condition, viewBox) => {
 		return
 	}
 
-	const watcherItem = entries => entries.forEach(entry => condition(entry))
-
-	const watcherObserver = new IntersectionObserver(watcherItem, { threshold: [viewBox] })
+	const watcherItem = entries => entries.forEach(entry => condition(entry)),
+		watcherObserver = new IntersectionObserver(watcherItem, { threshold: [viewBox] })
 
 	watcherElements.forEach(watcherElement => watcherObserver.observe(watcherElement))
 }
