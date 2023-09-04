@@ -7,17 +7,17 @@ export const accordion = () => {
 		return
 	}
 
-	const accordionState = (accordionItem) => {
-		const accordionData = accordionItem.dataset.accordionItem,
-			accordionContent = accordionItem.nextElementSibling
+	const accordionState = accordionElement => {
+		const accordionData = accordionElement.dataset.accordionItem,
+			accordionContent = accordionElement.nextElementSibling
 
 		if (accordionData === 'open') {
-			accordionItem.classList.add('_active')
+			accordionElement.classList.add('_active')
 			accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px'
 			return
 		}
 
-		accordionItem.classList.remove('_active')
+		accordionElement.classList.remove('_active')
 		accordionContent.style.maxHeight = 0
 	}
 
