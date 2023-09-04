@@ -25,6 +25,13 @@ data-parallax-scroll-opacity="fade/show"
 // import { parallaxOnMousemove } from "./parallax.js"
 // parallaxOnMousemove() // data-parallax-mouse (minmax 10-100) default: 50
 
+// import { accordion } from "./accordion.js"
+// accordion() // class: _active
+/*
+data-accordion="toggle"
+data-accordion-item="open"
+*/
+
 // import { popup } from "./popup.js"
 // popup(...selectors) // data-popup="popup id"
 

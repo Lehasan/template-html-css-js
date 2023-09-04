@@ -1,3 +1,10 @@
+/* <div id="popup" class="popup">
+	<div class="popup__box">
+		<button class="popup__close" type="button"></button>
+		<div class="popup__content"></div>
+	</div>
+</div> */
+
 .popup {
 	overflow-y: auto;
 	position: fixed;
@@ -54,12 +61,3 @@
 .popup__close::after {
 	transform: rotate(-45deg);
 }
-
-/* ======================================================== */
-
-/* <div id="popup" class="popup">
-	<div class="popup__box">
-		<button class="popup__close" type="button"></button>
-		<div class="popup__content"></div>
-	</div>
-</div> */

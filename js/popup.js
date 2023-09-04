@@ -1,7 +1,10 @@
 export const popup = (...selectors) => {
 	const buttonsWrapper = document.querySelectorAll(selectors)
 
-	if (!buttonsWrapper?.length) return
+	if (!buttonsWrapper?.length) {
+		console.error(`Selectors '${selectors}' not found`)
+		return
+	}
 
 	buttonsWrapper.forEach(buttonsWrapperItem => {
 		buttonsWrapperItem.addEventListener('click', event => {
@@ -11,7 +14,10 @@ export const popup = (...selectors) => {
 				const buttonData = buttonTarget.dataset.popup,
 					popupElement = document.getElementById(buttonData)
 
-				if (!popupElement) return
+				if (!popupElement) {
+					console.error(`Popup '${buttonData}' not found`)
+					return
+				}
 
 				document.body.classList.add('_lock')
 				popupElement.classList.add('popup_open')

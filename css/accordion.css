@@ -1,0 +1,32 @@
+/* <ul class="list-accordion" data-accordion>
+		<li class="list-accordion__item accordion">
+			<button class="accordion__button" data-accordion-item></button>
+			<div class="accordion__content"></div>
+		</li>
+</ul> */
+
+.accordion {
+	overflow: hidden;
+}
+
+.accordion__button {
+	width: 100%;
+	text-align: left;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 30px;
+}
+
+.accordion__button::after {
+	content: "+";
+	flex: 0 0 auto;
+}
+
+.accordion__button._active::after {
+	content: "-";
+}
+
+.accordion__content {
+	transition: max-height var(--transition-duration);
+}
