@@ -1,11 +1,6 @@
-export const toggleClass = (currentClass, ...classes) => {
-	const element = document.querySelector(currentClass)
-
-	if (element) {
-		classes.forEach(classItem => element.classList.toggle(classItem))
-	} else {
-		console.error(`Element '${currentClass}' not found`)
-	}
+export const toggleClass = (element, ...classes) => {
+	const currentElement = document.querySelector(element)
+	if (currentElement) classes.forEach(classItem => currentElement.classList.toggle(classItem))
 }
 
 // ===============================================================================

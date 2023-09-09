@@ -1,6 +1,6 @@
-/* <ul class="list-accordion" data-accordion>
+/* <ul class="list-accordion" data-accordion="toggle">
 		<li class="list-accordion__item accordion">
-			<button class="accordion__button" data-accordion-item></button>
+			<button class="accordion__button" data-accordion-item="open"></button>
 			<div class="accordion__content"></div>
 		</li>
 </ul> */

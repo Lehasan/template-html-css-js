@@ -27,10 +27,9 @@ data-parallax-scroll-opacity="fade/show"
 
 // import { accordion } from "./accordion.js"
 // accordion() // class: _active
-/*
-data-accordion="toggle"
-data-accordion-item="open"
-*/
+
+// import { rating } from "./rating.js"
+// rating() // class: _active
 
 // import { popup } from "./popup.js"
 // popup(...selectors) // data-popup="popup id"
