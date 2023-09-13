@@ -1,14 +1,14 @@
 import { isMobile } from "./devices.js"
 
 export const parallaxOnMousemove = () => {
-	const parallaxItems = document.querySelectorAll('[data-parallax-mouse]')
-
-	if (!parallaxItems?.length) {
-		console.error("Data attribute 'data-parallax-mouse' not found")
-		return
-	}
-
 	if (!isMobile.any()) {
+		const parallaxItems = document.querySelectorAll('[data-parallax-mouse]')
+
+		if (!parallaxItems?.length) {
+			console.error("Data attribute 'data-parallax-mouse' not found")
+			return
+		}
+
 		window.addEventListener('mousemove', event => {
 			const parallaxCordX = window.innerWidth / 2 - event.clientX,
 				parallaxCordY = window.innerHeight / 2 - event.clientY
@@ -27,14 +27,14 @@ export const parallaxOnMousemove = () => {
 // ===============================================================================
 
 export const parallaxOnScroll = () => {
-	const parallaxElements = document.querySelectorAll('[data-parallax-scroll]')
-
-	if (!parallaxElements?.length) {
-		console.error("Data attribute 'data-parallax-scroll' not found")
-		return
-	}
-
 	if (!isMobile.any()) {
+		const parallaxElements = document.querySelectorAll('[data-parallax-scroll]')
+
+		if (!parallaxElements?.length) {
+			console.error("Data attribute 'data-parallax-scroll' not found")
+			return
+		}
+
 		parallaxElements.forEach(parallaxItem => {
 			const { parallaxScroll, parallaxScrollOpacity } = parallaxItem.dataset,
 				[parallaxType, parallaxSpeed = 2] = parallaxScroll.split(',')

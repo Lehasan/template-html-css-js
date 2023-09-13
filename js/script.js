@@ -2,9 +2,6 @@
 
 import { toggleClass, findElement } from "./functions.js"
 
-// import { progressLoader } from "./progress-loader.js"
-// progressLoader('.SELECTOR', duration) // default duration: 0.5s
-
 // import { burgerMenu } from "./burger-menu.js"
 // burgerMenu('.icon-menu', '.burger-menu-list') // class: _active
 
@@ -12,7 +9,7 @@ import { toggleClass, findElement } from "./functions.js"
 // headerFixed(findElement('.selector').offsetHeight) // default: 0, class: header_fixed
 
 // import { animationOnScroll } from "./animationOnScroll.js"
-// animationOnScroll(isRepeat = false, resetDelayValue = 0, globalDuration = 1.4, viewBox = 0.5) 
+// animationOnScroll(isRepeat = false, mediaQuery = 0, globalDuration = 1.4, viewBox = 0.5) 
 // data-animation-scroll="VALUE, delay, duration" default duration: 1.4s
 
 // import { parallaxOnScroll } from "./parallax.js"

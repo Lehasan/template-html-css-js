@@ -1,4 +1,4 @@
-/* <ul class="list-accordion" data-accordion="toggle">
+/* <ul class="list-accordion" data-accordion="toggle" data-accordion-media="500">
 		<li class="list-accordion__item accordion">
 			<button class="accordion__button" data-accordion-item="open"></button>
 			<div class="accordion__content"></div>

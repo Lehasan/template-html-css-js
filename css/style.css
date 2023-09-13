@@ -1,10 +1,11 @@
 @import "variables.css";
 @import "reset.css";
+@import "custom-styles.css";
 @import "common.css";
 @import "buttons.css";
 @import "inputs.css";
-@import "accordion.css";
 @import "rating.css";
+@import "accordion.css";
 @import "popup.css";
 
 @import "header.css";
@@ -42,24 +43,4 @@ body {
 
 .main {
 	flex: 1 1 auto;
-}
-
-[class*="__container"] {
-	max-width: var(--container);
-	padding-left: var(--container-padding);
-	padding-right: var(--container-padding);
-	margin: 0 auto;
-}
-
-[class*="__ibg"] {
-	position: relative;
-}
-
-[class*="__ibg"] img {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
 }

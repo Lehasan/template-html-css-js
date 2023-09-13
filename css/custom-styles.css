@@ -1,0 +1,19 @@
+[class*="__container"] {
+	max-width: var(--container);
+	padding-left: var(--container-padding);
+	padding-right: var(--container-padding);
+	margin: 0 auto;
+}
+
+[class*="__ibg"] {
+	position: relative;
+}
+
+[class*="__ibg"] img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}

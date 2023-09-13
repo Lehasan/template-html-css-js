@@ -1,9 +1,8 @@
 export const accordion = () => {
-	const accordionWrapperElements = document.querySelectorAll('[data-accordion]'),
-		accordionElements = document.querySelectorAll('[data-accordion-item]')
+	const accordionWrapperElements = document.querySelectorAll('[data-accordion]')
 
-	if (!accordionWrapperElements?.length || !accordionElements?.length) {
-		console.error("Data attribute 'data-accordion' or 'data-accordion-item' not found")
+	if (!accordionWrapperElements?.length) {
+		console.error("Data attribute 'data-accordion' not found")
 		return
 	}
 
@@ -21,16 +20,42 @@ export const accordion = () => {
 		accordionContent.style.maxHeight = 0
 	}
 
-	accordionElements.forEach(accordionItem => accordionState(accordionItem))
-
 	accordionWrapperElements.forEach(accordionWrapperItem => {
-		const accordionWrapperData = accordionWrapperItem.dataset.accordion
+		const { accordion, accordionMedia } = accordionWrapperItem.dataset
+		const accordionElements = accordionWrapperItem.querySelectorAll('[data-accordion-item]')
+
+		if (!accordionElements?.length) {
+			console.error("Data attribute 'data-accordion-item' not found")
+			return
+		}
+
+		accordionElements.forEach(accordionItem => accordionState(accordionItem))
+
+		if (accordionMedia) {
+			const updateAccordion = action => {
+				accordionElements.forEach(accordionItem => {
+					accordionItem.dataset.accordionItem = action
+					accordionState(accordionItem)
+				})
+			}
+
+			updateAccordion(window.innerWidth >= accordionMedia ? 'open' : 'close')
+
+			window.matchMedia(`(min-width: ${accordionMedia}px)`).addEventListener('change', event => {
+				if (event.matches) {
+					updateAccordion('open')
+					return
+				}
+
+				updateAccordion('close')
+			})
+		}
 
 		accordionWrapperItem.addEventListener('click', event => {
 			const accordionTarget = event.target
 
 			if (accordionTarget === accordionTarget.closest('[data-accordion-item]')) {
-				if (accordionWrapperData !== 'toggle') {
+				if (accordion !== 'toggle') {
 					accordionTarget.dataset.accordionItem = accordionTarget.dataset.accordionItem === 'open' ? 'close' : 'open'
 
 					accordionState(accordionTarget)

@@ -1,12 +1,17 @@
 import { findElements, watcher } from "./functions.js"
 
-export const animationOnScroll = (isRepeat = false, resetDelayValue = 0, globalDuration = 1.4, viewBox = 0.5) => {
+export const animationOnScroll = (isRepeat = false, mediaQuery = 0, globalDuration = 1.4, viewBox = 0.5) => {
 	const animationStyle = (item, opacity, reset) => {
 		const animationData = item.dataset.animationScroll,
 			[transformValue, delay, duration] = animationData.split(',')
 
-		const isDelay = delay && window.innerWidth >= resetDelayValue ? delay : 0,
-			isDuration = duration ? duration : globalDuration
+		let isDelay = delay && window.innerWidth >= mediaQuery ? delay : 0
+
+		window.matchMedia(`(min-width: ${mediaQuery}px)`).addEventListener('change', event => {
+			if (event.matches) isDelay = 0
+		})
+
+		const isDuration = duration ? duration : globalDuration
 
 		item.style.transform = reset ? reset : transformValue
 		item.style.opacity = opacity
