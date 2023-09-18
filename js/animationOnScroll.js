@@ -1,13 +1,13 @@
 import { findElements, watcher } from "./functions.js"
 
-export const animationOnScroll = (isRepeat = false, mediaQuery = 0, globalDuration = 1.4, viewBox = 0.5) => {
+export const animationOnScroll = (isRepeat = false, resetMediaQuery = 0, globalDuration = 1.4, viewBox = 0.5) => {
 	const animationStyle = (item, opacity, reset) => {
 		const animationData = item.dataset.animationScroll,
 			[transformValue, delay, duration] = animationData.split(',')
 
-		let isDelay = delay && window.innerWidth >= mediaQuery ? delay : 0
+		let isDelay = delay && window.innerWidth >= resetMediaQuery ? delay : 0
 
-		window.matchMedia(`(min-width: ${mediaQuery}px)`).addEventListener('change', event => {
+		window.matchMedia(`(min-width: ${resetMediaQuery}px)`).addEventListener('change', event => {
 			if (event.matches) isDelay = 0
 		})
 

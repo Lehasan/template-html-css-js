@@ -17,15 +17,15 @@ data-goto-watch
 */
 
 // import { animationOnScroll } from "./animationOnScroll.js"
-// animationOnScroll(isRepeat = false, mediaQuery = 0, globalDuration = 1.4, viewBox = 0.5) 
+// animationOnScroll(isRepeat = false, resetMediaQuery = 0, globalDuration = 1.4, viewBox = 0.5) 
 // data-animation-scroll="VALUE, delay, duration" default duration: 1.4s
 
 // import { parallaxOnScroll } from "./parallax.js"
 // parallaxOnScroll(parallaxGlobalSpeed)
 /*
 data-parallax-scroll="TYPE, speed" default speed: 2
-data-parallax-scroll-opacity="fade/show" default speed: 0.3
-data-parallax-scroll-scale="grow/shrink" default speed: 0.03
+data-parallax-scroll-opacity="fade/show, speed" default speed: 0.3
+data-parallax-scroll-scale="grow/shrink, speed" default speed: 0.03
 */
 
 // import { parallaxOnMousemove } from "./parallax.js"
