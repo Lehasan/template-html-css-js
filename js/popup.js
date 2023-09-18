@@ -1,52 +1,53 @@
-export const popup = (...selectors) => {
-	const buttonsWrapper = document.querySelectorAll(selectors)
+export const popup = () => {
+	document.addEventListener('click', event => {
+		const buttonTarget = event.target
 
-	if (!buttonsWrapper?.length) {
-		console.error(`Selectors '${selectors}' not found`)
-		return
-	}
+		if (buttonTarget === buttonTarget.closest('[data-popup]')) {
+			const buttonData = buttonTarget.dataset.popup,
+				popupElement = document.getElementById(buttonData)
 
-	buttonsWrapper.forEach(buttonsWrapperItem => {
-		buttonsWrapperItem.addEventListener('click', event => {
-			const buttonTarget = event.target
-
-			if (buttonTarget.closest('[data-popup]')) {
-				const buttonData = buttonTarget.dataset.popup,
-					popupElement = document.getElementById(buttonData)
-
-				if (!popupElement) {
-					console.error(`Popup '${buttonData}' not found`)
-					return
-				}
-
-				document.body.classList.add('_lock')
-				popupElement.classList.add('popup_open')
-
-				popupCloseOnClick(popupElement)
+			if (!popupElement) {
+				console.error(`id="${buttonData}" not found`)
+				return
 			}
-		})
+
+			document.body.classList.add('_lock')
+			popupElement.classList.add('popup_open')
+
+			const popupCloseElement = popupElement.querySelector('.popup__close')
+
+			const popupClose = () => {
+				document.body.classList.remove('_lock')
+				popupElement.classList.remove('popup_open')
+
+				popupRemoveEvents()
+			}
+
+			const popupСloseOnOutsideClick = event => {
+				const popupTarget = event.target
+
+				if (popupTarget === popupTarget.closest('.popup')) {
+					popupClose()
+					popupRemoveEvents()
+				}
+			}
+
+			const popupСloseOnKeyup = event => {
+				if (event.code === 'Escape') {
+					popupClose()
+					popupRemoveEvents()
+				}
+			}
+
+			const popupRemoveEvents = () => {
+				popupCloseElement.removeEventListener('click', popupClose)
+				window.removeEventListener('click', popupСloseOnOutsideClick)
+				document.removeEventListener('keyup', popupСloseOnKeyup)
+			}
+
+			popupCloseElement.addEventListener('click', popupClose)
+			window.addEventListener('click', popupСloseOnOutsideClick)
+			document.addEventListener('keyup', popupСloseOnKeyup)
+		}
 	})
-
-	document.addEventListener('keyup', event => {
-		const popupOpenElement = document.querySelector('.popup_open')
-
-		if (event.code === 'Escape' && popupOpenElement) popupClose(popupOpenElement)
-	})
-
-	const popupCloseOnClick = selector => {
-		const popupCloseElement = selector.querySelector('.popup__close')
-
-		if (popupCloseElement) popupCloseElement.addEventListener('click', () => popupClose(selector))
-
-		selector.addEventListener('click', event => {
-			const target = event.target
-
-			if (target === target.closest('.popup')) popupClose(target)
-		})
-	}
-
-	const popupClose = selector => {
-		document.body.classList.remove('_lock')
-		selector.classList.remove('popup_open')
-	}
 }

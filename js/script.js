@@ -8,15 +8,24 @@ import { toggleClass, findElement } from "./functions.js"
 // import { headerFixed } from "./fixed.js"
 // headerFixed(findElement('.selector').offsetHeight) // default: 0, class: header_fixed
 
+// import { goto } from "./goto.js"
+// goto(findElement('header').offsetHeight, isWatcher = false) // default margin-top: 0
+/*
+data-goto="SELECTOR"
+data-goto-target class: _active
+data-goto-watch
+*/
+
 // import { animationOnScroll } from "./animationOnScroll.js"
 // animationOnScroll(isRepeat = false, mediaQuery = 0, globalDuration = 1.4, viewBox = 0.5) 
 // data-animation-scroll="VALUE, delay, duration" default duration: 1.4s
 
 // import { parallaxOnScroll } from "./parallax.js"
-// parallaxOnScroll()
+// parallaxOnScroll(parallaxGlobalSpeed)
 /*
 data-parallax-scroll="TYPE, speed" default speed: 2
-data-parallax-scroll-opacity="fade/show"
+data-parallax-scroll-opacity="fade/show" default speed: 0.3
+data-parallax-scroll-scale="grow/shrink" default speed: 0.03
 */
 
 // import { parallaxOnMousemove } from "./parallax.js"
@@ -29,7 +38,7 @@ data-parallax-scroll-opacity="fade/show"
 // rating() // class: _active
 
 // import { popup } from "./popup.js"
-// popup(...selectors) // data-popup="popup id"
+// popup() // data-popup="popup id"
 
 // load page
 window.addEventListener('load', () => {

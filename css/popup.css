@@ -19,6 +19,7 @@
 	opacity: 0;
 	visibility: hidden;
 	transition: all var(--transition-duration);
+	z-index: 100;
 }
 
 .popup_open {
