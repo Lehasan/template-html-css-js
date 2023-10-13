@@ -1,4 +1,5 @@
 import { findElements, watcher } from "./functions.js"
+import { toggleBurgerMenu } from "./burger-menu.js"
 
 export const goto = (marginTop = 0, isWatcher = false, viewBox = 0.8) => {
 	document.addEventListener('click', event => {
@@ -15,8 +16,10 @@ export const goto = (marginTop = 0, isWatcher = false, viewBox = 0.8) => {
 				return
 			}
 
-			const gotoCordinates = gotoSelector.getBoundingClientRect().top - marginTop + window.scrollY
+			const burgerElement = document.querySelector('[data-burger]')
+			if (burgerElement && burgerElement.classList.contains('_active')) toggleBurgerMenu(burgerElement)
 
+			const gotoCordinates = gotoSelector.getBoundingClientRect().top - marginTop + window.scrollY
 			window.scrollTo({ top: gotoCordinates })
 		}
 	})

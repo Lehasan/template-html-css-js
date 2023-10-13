@@ -3,7 +3,7 @@
 import { toggleClass, findElement } from "./functions.js"
 
 // import { burgerMenu } from "./burger-menu.js"
-// burgerMenu('.icon-menu', '.burger-menu-list') // class: _active
+// burgerMenu() // class: _active
 
 // import { headerFixed } from "./fixed.js"
 // headerFixed(findElement('.selector').offsetHeight) // default: 0, class: header_fixed

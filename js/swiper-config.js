@@ -1,14 +1,14 @@
 /*
 <div class="slider">
-  <div class="slider__wrapper">
-	 <div class="slider__slide">Slide 1</div>
-	 <div class="slider__slide">Slide 2</div>
-	<div class="slider__slide">Slide 3</div>
-  </div>
-  <div class="slider__pagination"></div>
-  
-  <div class="slider__button-prev"></div>
-  <div class="slider__button-next"></div>
+	<ul class="slider__wrapper">
+		<li class="slider__slide">Slide 1</li>
+		<li class="slider__slide">Slide 2</li>
+		<li class="slider__slide">Slide 3</li>
+	</ul>
+	<div class="slider__pagination"></div>
+
+	<button class="slider__button-prev"></button>
+	<button class="slider__button-next"></button>
 </div>
 */
 
@@ -48,6 +48,11 @@ if (sliderElement) {
 		simulateTouch: false,
 		initialSlide: 1,
 		mousewheel: true,
+		
+		effect: 'fade',
+		fadeEffect: {
+			crossFade: true,
+		},
 
 		autoplay: {
 			delay: 3500,

@@ -30,6 +30,10 @@ img {
 	vertical-align: top;
 }
 
+input {
+	outline: none;
+}
+
 button {
 	text-align: center;
 	background-color: transparent;
