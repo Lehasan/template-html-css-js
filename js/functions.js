@@ -5,6 +5,17 @@ export const toggleClass = (element, ...classes) => {
 
 // ===============================================================================
 
+export const switchClass = (searchIn, targetElement, currentClass, addClass) => {
+	if (searchIn && targetElement) {
+		const currentElement = searchIn.querySelector(`${currentClass}.${addClass}`)
+		if (currentElement) currentElement.classList.remove(addClass)
+
+		targetElement.classList.add(addClass)
+	}
+}
+
+// ===============================================================================
+
 export const findElement = element => {
 	const currentElement = document.querySelector(element)
 

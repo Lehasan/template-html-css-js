@@ -20,6 +20,9 @@ data-goto-watch
 // animationOnScroll(isRepeat = false, resetMediaQuery = 0, globalDuration = 1.4, viewBox = 0.5) 
 // data-animation-scroll="VALUE, delay, duration" default duration: 1.4s
 
+// import { filter } from "./filter.js"
+// filter(...filterItemSelectors) // classes: _active, ._hide
+
 // import { parallaxOnScroll } from "./parallax.js"
 // parallaxOnScroll(parallaxGlobalSpeed)
 /*
