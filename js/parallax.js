@@ -2,31 +2,29 @@ import { isMobile } from "./devices.js"
 import { watcher } from "./functions.js"
 
 export const parallaxOnMousemove = () => {
-	if (!isMobile.any()) {
-		const conditionWatcher = entry => {
-			const parallaxTarget = entry.target
+	if (isMobile.any()) return
 
-			window.addEventListener('mousemove', event => {
-				if (entry.isIntersecting) {
-					parallaxTarget.style.transition = `transform 0.1s linear`
+	const conditionWatcher = entry => {
+		const parallaxTarget = entry.target
 
-					const parallaxCordX = window.innerWidth / 2 - event.clientX,
-						parallaxCordY = window.innerHeight / 2 - event.clientY
+		window.addEventListener('mousemove', event => {
+			if (entry.isIntersecting) {
+				parallaxTarget.style.transition = `transform 0.1s linear`
 
-					const parallaxTargetData = parallaxTarget.dataset.parallaxMouse,
-						parallaxSpeed = parallaxTargetData ? parallaxTargetData : 50
+				const parallaxCordX = window.innerWidth / 2 - event.clientX,
+					parallaxCordY = window.innerHeight / 2 - event.clientY
 
-					parallaxTarget.style.transform = `translate(${parallaxCordX / parallaxSpeed}px, ${parallaxCordY / parallaxSpeed}px)`
+				const parallaxTargetData = parallaxTarget.dataset.parallaxMouse,
+					parallaxSpeed = parallaxTargetData ? parallaxTargetData : 50
 
-					return
-				}
+				return parallaxTarget.style.transform = `translate(${parallaxCordX / parallaxSpeed}px, ${parallaxCordY / parallaxSpeed}px)`
+			}
 
-				parallaxTarget.style = null
-			})
-		}
-
-		watcher('[data-parallax-mouse]', conditionWatcher, 0)
+			parallaxTarget.style = null
+		})
 	}
+
+	watcher('[data-parallax-mouse]', conditionWatcher, 0)
 }
 
 // ===============================================================================

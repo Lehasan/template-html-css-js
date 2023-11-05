@@ -1,5 +1,5 @@
 /*
-<div class="filter" data-filter>
+<div class="filter" data-filter="list-filter__item">
 	<nav class="filter__menu menu-filter">
 		<ul class="menu-filter__list">
 			<li class="menu-filter__item">
@@ -38,42 +38,35 @@
 
 import { switchClass } from "./functions.js"
 
-export const filter = (...filterItemSelectors) => {
+export const filter = () => {
 	const filterElements = document.querySelectorAll('[data-filter]')
 
-	if (!filterElements?.length) {
-		console.error(`Elements 'data-filter' not found`)
-		return
-	}
+	if (!filterElements?.length) return console.error(`Elements 'data-filter' not found`)
 
-	const filteringItems = (searchIn, filterValue) => {
-		const filterItemElements = searchIn.querySelectorAll(filterItemSelectors)
+	const filteringItems = (searchIn, filterItems, filterValue) => {
+		const filterItemElements = searchIn.querySelectorAll(`.${filterItems}`)
 
-		if (!filterItemElements?.length) {
-			console.error('filter content elements not found')
-			return
-		}
+		if (!filterItemElements?.length) return console.error('filter content elements not found')
 
 		filterItemElements.forEach(filterItemElement => {
-			if (!filterItemElement.classList.contains(filterValue) && filterValue !== 'all') {
-				filterItemElement.classList.add('_hide')
-				return
-			}
-
-			filterItemElement.classList.remove('_hide')
+			!filterItemElement.classList.contains(filterValue) && filterValue !== 'all'
+				? filterItemElement.classList.add('_hide')
+				: filterItemElement.classList.remove('_hide')
 		})
 	}
 
 	filterElements.forEach(filterItem => {
+		const filterData = filterItem.dataset.filter
+
 		filterItem.addEventListener('click', event => {
-			const filterButtonTarget = event.target
+			const filterButtonTarget = event.target.closest('[data-filter-button]')
 
-			if (filterButtonTarget === filterButtonTarget.closest('[data-filter-button]')) {
-				const filterButtonData = filterButtonTarget.dataset.filterButton
+			if (!filterButtonTarget) return
 
-				switchClass(filterItem, filterButtonTarget, '[data-filter-button]', '_active')
-				filteringItems(filterItem, filterButtonData)
-			}
+			const filterButtonData = filterButtonTarget.dataset.filterButton
+
+			switchClass(filterItem, filterButtonTarget, '[data-filter-button]', '_active')
+			filteringItems(filterItem, filterData, filterButtonData)
 		})
 	})
 }

@@ -2,8 +2,7 @@ export const burgerMenu = () => {
 	const burgerMenuButton = document.querySelector('[data-burger]')
 
 	if (!burgerMenuButton) {
-		console.error(`Element '[data-burger]' not found`)
-		return
+		return console.error(`Element '[data-burger]' not found`)
 	}
 
 	burgerMenuButton.addEventListener('click', () => toggleBurgerMenu(burgerMenuButton))

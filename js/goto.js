@@ -3,40 +3,34 @@ import { toggleBurgerMenu } from "./burger-menu.js"
 
 export const goto = (marginTop = 0, isWatcher = false, viewBox = 0.8) => {
 	document.addEventListener('click', event => {
-		const gotoTarget = event.target
+		const gotoTarget = event.target.closest('[data-goto]')
 
-		if (gotoTarget === gotoTarget.closest('[data-goto]')) {
-			event.preventDefault()
+		if (!gotoTarget) return
 
-			const gotoTargetData = gotoTarget.dataset.goto,
-				gotoSelector = document.querySelector(`.${gotoTargetData}`)
+		event.preventDefault()
 
-			if (!gotoSelector) {
-				console.error(`Selector '.${gotoTargetData}' not found`)
-				return
-			}
+		const gotoTargetData = gotoTarget.dataset.goto,
+			gotoSelector = document.querySelector(`.${gotoTargetData}`)
 
-			const burgerElement = document.querySelector('[data-burger]')
-			if (burgerElement && burgerElement.classList.contains('_active')) toggleBurgerMenu(burgerElement)
+		if (!gotoSelector) return console.error(`Selector '.${gotoTargetData}' not found`)
 
-			const gotoCordinates = gotoSelector.getBoundingClientRect().top - marginTop + window.scrollY
-			window.scrollTo({ top: gotoCordinates })
-		}
+		const burgerElement = document.querySelector('[data-burger]')
+		if (burgerElement && burgerElement.classList.contains('_active')) toggleBurgerMenu(burgerElement)
+
+		const gotoCordinates = gotoSelector.getBoundingClientRect().top - marginTop + window.scrollY
+		window.scrollTo({ top: gotoCordinates })
 	})
 
 	if (!isWatcher) return
 
 	const conditionWatcher = entry => {
 		if (entry.isIntersecting) {
-			findElements('[data-goto-target]').forEach(gotoTarget => {
+			findElements('[data-goto]').forEach(gotoTarget => {
 				const gotoTargetData = gotoTarget.dataset.goto
 
-				if (entry.target.classList.contains(`${gotoTargetData}`)) {
-					gotoTarget.classList.add('_active')
-					return
-				}
-
-				gotoTarget.classList.remove('_active')
+				entry.target.classList.contains(`${gotoTargetData}`)
+					? gotoTarget.classList.add('_active')
+					: gotoTarget.classList.remove('_active')
 			})
 		}
 	}

@@ -1,10 +1,9 @@
+import { switchClass } from "./functions.js"
+
 export const rating = () => {
 	const ratingElements = document.querySelectorAll('[data-rating]')
 
-	if (!ratingElements?.length) {
-		console.error("Data attribute 'data-rating' not found")
-		return
-	}
+	if (!ratingElements?.length) return console.error("Data attribute 'data-rating' not found")
 
 	ratingElements.forEach(ratingItem => {
 		const { rating, ratingClick = 'false' } = ratingItem.dataset
@@ -20,18 +19,15 @@ export const rating = () => {
 		if (ratingClick !== 'true') return
 
 		ratingItem.addEventListener('click', event => {
-			const ratingTarget = event.target
+			const ratingTarget = event.target.closest('[data-rating-value]')
 
-			if (ratingTarget === ratingTarget.closest('[data-rating-value]')) {
-				const { ratingValue } = ratingTarget.dataset
-				ratingTarget.parentElement.dataset.rating = ratingTarget.dataset.ratingValue
+			if (!ratingTarget) return
 
-				const ratingActive = ratingItem.querySelector('[data-rating-value]._active')
-				if (ratingActive) ratingActive.classList.remove('_active')
-				ratingTarget.classList.add('_active')
+			const { ratingValue } = ratingTarget.dataset
+			ratingTarget.parentElement.dataset.rating = ratingTarget.dataset.ratingValue
 
-				ratingValueElement.textContent = ratingValue
-			}
+			switchClass(ratingItem, ratingTarget, '[data-rating-value]', '_active')
+			ratingValueElement.textContent = ratingValue
 		})
 	})
 }

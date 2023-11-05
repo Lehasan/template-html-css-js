@@ -1,17 +1,20 @@
 export const toggleClass = (element, ...classes) => {
 	const currentElement = document.querySelector(element)
-	if (currentElement) classes.forEach(classItem => currentElement.classList.toggle(classItem))
+
+	if (currentElement) {
+		return classes.forEach(classItem => currentElement.classList.toggle(classItem))
+	}
 }
 
 // ===============================================================================
 
 export const switchClass = (searchIn, targetElement, currentClass, addClass) => {
-	if (searchIn && targetElement) {
-		const currentElement = searchIn.querySelector(`${currentClass}.${addClass}`)
-		if (currentElement) currentElement.classList.remove(addClass)
+	if (!searchIn || !targetElement) return
 
-		targetElement.classList.add(addClass)
-	}
+	const currentElement = searchIn.querySelector(`${currentClass}.${addClass}`)
+	if (currentElement) currentElement.classList.remove(addClass)
+
+	targetElement.classList.add(addClass)
 }
 
 // ===============================================================================
@@ -19,11 +22,11 @@ export const switchClass = (searchIn, targetElement, currentClass, addClass) => 
 export const findElement = element => {
 	const currentElement = document.querySelector(element)
 
-	if (currentElement) {
-		return currentElement
-	} else {
-		console.error(`Element '${element}' not found`)
+	if (!currentElement) {
+		return console.error(`Element '${element}' not found`)
 	}
+
+	return currentElement
 }
 
 // ===============================================================================
@@ -31,11 +34,11 @@ export const findElement = element => {
 export const findElements = elements => {
 	const currentElements = document.querySelectorAll(elements)
 
-	if (currentElements?.length) {
-		return currentElements
-	} else {
-		console.error(`Elements '${elements}' not found`)
+	if (!currentElements?.length) {
+		return console.error(`Elements '${elements}' not found`)
 	}
+
+	return currentElements
 }
 
 // ===============================================================================
@@ -43,10 +46,7 @@ export const findElements = elements => {
 export const watcher = (selector, condition, viewBox) => {
 	const watcherElements = document.querySelectorAll(selector)
 
-	if (!watcherElements?.length) {
-		console.error(`Elements '${selector}' not found`)
-		return
-	}
+	if (!watcherElements?.length) return console.error(`Elements '${selector}' not found`)
 
 	const watcherItem = entries => entries.forEach(entry => condition(entry)),
 		watcherObserver = new IntersectionObserver(watcherItem, { threshold: [viewBox] })

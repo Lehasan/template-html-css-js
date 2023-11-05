@@ -12,7 +12,7 @@ import { toggleClass, findElement } from "./functions.js"
 // goto(findElement('header').offsetHeight, isWatcher = false) // default margin-top: 0
 /*
 data-goto="SELECTOR"
-data-goto-target class: _active
+isWatcher = true class: _active
 data-goto-watch
 */
 
@@ -21,7 +21,7 @@ data-goto-watch
 // data-animation-scroll="VALUE, delay, duration" default duration: 1.4s
 
 // import { filter } from "./filter.js"
-// filter(...filterItemSelectors) // classes: _active, ._hide
+// filter() // classes: _active, ._hide
 
 // import { parallaxOnScroll } from "./parallax.js"
 // parallaxOnScroll(parallaxGlobalSpeed)
@@ -33,6 +33,13 @@ data-parallax-scroll-scale="grow/shrink, speed" default speed: 0.03
 
 // import { parallaxOnMousemove } from "./parallax.js"
 // parallaxOnMousemove() // data-parallax-mouse (minmax 10-100) default: 50
+
+// import { move } from "./move.js"
+// move()
+/*
+data-move="element, move element, event" default event: click
+data-move-speed="1" default speed: 0.4
+*/
 
 // import { accordion } from "./accordion.js"
 // accordion() // class: _active

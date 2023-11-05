@@ -4,11 +4,8 @@ export const headerFixed = (selector = 0) => {
 	if (!header) return
 
 	window.addEventListener('scroll', () => {
-		if (window.scrollY > selector) {
-			header.classList.add('header_fixed')
-			return
-		}
-
-		header.classList.remove('header_fixed')
+		window.scrollY > selector
+			? header.classList.add('header_fixed')
+			: header.classList.remove('header_fixed')
 	})
 }
