@@ -50,8 +50,6 @@ export const move = () => {
 		setActiveElement(dataMoveItem, moveElement)
 
 		switch (moveEvent) {
-			case 'click':
-				return dataMoveItem.addEventListener('click', event => handleTargetEvents(event, targetElement, moveElement, dataMoveSpeed))
 			case 'mousemove':
 				return dataMoveItem.addEventListener('mousemove', event => handleTargetEvents(event, targetElement, moveElement, dataMoveSpeed))
 			case 'all':
