@@ -50,6 +50,9 @@ data-move-speed="1" default speed: 0.4
 // import { popup } from "./popup.js"
 // popup() // data-popup="popup id"
 
+// import { draggable } from "./draggable.js"
+// draggable() // data-draggable
+
 // load page
 window.addEventListener('load', () => {
 	setTimeout(() => {
