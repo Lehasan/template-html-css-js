@@ -8,13 +8,13 @@ export const toggleClass = (element, ...classes) => {
 
 // ===============================================================================
 
-export const switchClass = (searchIn, targetElement, currentClass, addClass) => {
+export const switchClass = (searchIn, targetElement, nameClass) => {
 	if (!searchIn || !targetElement) return
 
-	const currentElement = searchIn.querySelector(`${currentClass}.${addClass}`)
-	if (currentElement) currentElement.classList.remove(addClass)
+	const currentElement = searchIn.querySelector(`.${nameClass}`)
+	if (currentElement) currentElement.classList.remove(nameClass)
 
-	targetElement.classList.add(addClass)
+	targetElement.classList.add(nameClass)
 }
 
 // ===============================================================================
